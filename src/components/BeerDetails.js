@@ -9,7 +9,7 @@ function BeerDetails(props) {
 
     useEffect(() => {
         axios.get(`https://ih-beers-api2.herokuapp.com/beers/${props.match.params.beerId}`)
-            .then((res) => setBeer(res.data))
+            .then((response) => setBeer(response.data))
     }, [])
 
 

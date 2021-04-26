@@ -1,18 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NavBar from './NavBar'
 
 function NewBeer(props) {
-
-    const [newBeerId, setNewBeerId] = useState({})
 
     const [beername, setBeername] = useState("")
     const [beertagline, setBeertagline] = useState("")
     const [beerdescription, setBeerdescription] = useState("")
     const [beerfirst_brewed, setBeerfirst_brewed] = useState("")
     const [beerbrewers_tips, setBeerbrewers_tips] = useState("")
-    const [beerattenuation_level, setBeerattenuation_level] = useState({})
+    const [beerattenuation_level, setBeerattenuation_level] = useState(0)
     const [beercontributed_by, setBeercontributed_by] = useState("")
+
 
     let newBeer = {
         name: beername,
@@ -24,24 +23,17 @@ function NewBeer(props) {
         contributed_by: beercontributed_by
     }
 
-
-    const submitAndPost = () => {
-        axios.post('https://ih-beers-api2.herokuapp.com/beers/new', {
-            newBeer
-        }).then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        });
+    const submitAndPost = (e) => {
+        e.preventDefault()
+        axios.post('https://ih-beers-api2.herokuapp.com/beers/new', newBeer)
+            .then(response => console.log(response))
     }
-    //response => { setNewBeerId(response.data.id) }
-    //console.log("newBeerId: " + newBeerId);
 
     return (
         <div>
             <NavBar />
             <div className="container-newbeer">
-                <form>
+                <form onSubmit={submitAndPost}>
                     <label>Name
                     <input type="text" name="name" onChange={event => setBeername(event.target.value)}></input></label>
 
@@ -63,10 +55,10 @@ function NewBeer(props) {
                     <label>Contributed By
                     <input type="text" name="contributedby" onChange={event => setBeercontributed_by(event.target.value)}></input></label>
 
-                    <input type="submit" value="ADD NEW" className="submit-addnew" onClick={submitAndPost} />
+                    <input type="submit" value="ADD NEW" className="submit-addnew" />
                 </form>
             </div>
-        </div>
+        </div >
     );
 }
 

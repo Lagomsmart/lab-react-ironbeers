@@ -6,7 +6,6 @@ import AllBeers from './components/AllBeers'
 import BeerDetails from './components/BeerDetails'
 import RandomBeer from './components/RandomBeer'
 import NewBeer from './components/NewBeer'
-import axios from 'axios'
 
 function App() {
 

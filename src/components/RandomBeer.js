@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar'
-//.then(console.log(beer))
+
 function RandomBeer(props) {
 
     const [beer, setBeer] = useState([])
