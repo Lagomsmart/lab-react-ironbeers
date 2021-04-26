@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -35,4 +38,83 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.navbar {
+  background-color: teal;
+  height: 3vw;
+  text-align: center;
+}
+
+
+.container-allBeers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid gray;
+  width: 30vw;
+}
+
+.container-allBeers-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 15vw;
+}
+
+.container-allBeers-img img {
+height: 200px;
+}
+
+.container-details {
+  display: flex;
+  flex-direction: column;
+  border: black 1px solid;
+}
+
+.container-details-img img {
+  height: 30vw;
+}
+
+.container-details-lower {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.container-details-lower h4 {
+  opacity: 0.4;
+}
+
+.container-details-name {
+  flex-direction: row;
+  text-align: left;
+}
+
+.container-details-year {
+text-align: right;
+}
+
+.container-details-description {
+  text-align: left;
+}
+
+.container-details-description h6 {
+  opacity: 0.4;
+}
+
+.container-newbeer form{
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.container-newbeer input {
+  margin-bottom: 1vw;
+}
+
+.submit-addnew {
+  color: white;
+  background-color: teal;
 }
